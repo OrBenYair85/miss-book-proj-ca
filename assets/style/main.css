@@ -206,6 +206,29 @@ a.active {
 	text-decoration: underline;
 }
 
+.navBar-container{
+	width: 60vw;
+	overflow: visible;
+}
+
+
+.navBar-list{
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	gap: 40px;
+}
+
+.navBar-list li{
+	display: flex;
+}
+
+.navBar-list li:hover{
+	text-decoration: underline;
+}
+
 
 @media (max-width: 720px) {
 	.app-header {
