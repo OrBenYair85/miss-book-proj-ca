@@ -27,6 +27,7 @@
 body {
 	margin: 0;
 	color: var(--gray3);
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 h1,
@@ -201,7 +202,7 @@ input:focus {
 
 
 a.active {
-	color: rgb(241, 212, 241);
+	color: rgb(255, 255, 255);
 	font-weight: 600;
 	text-decoration: underline;
 }
@@ -227,6 +228,11 @@ a.active {
 
 .navBar-list li:hover{
 	text-decoration: underline;
+}
+
+.home h2{
+	text-align: center;
+	font-size: x-large;
 }
 
 
