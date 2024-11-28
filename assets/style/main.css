@@ -257,9 +257,7 @@ a.active {
 	display: grid;
 	place-items:center;
 	width: 150%;
-	background-color: rgb(26, 97, 239);
 	border-radius: 10%;
-	border: solid 1px gray;
 	color: white;
 	text-align: center;
 	height: 100%;
@@ -287,8 +285,20 @@ a.active {
 
 .book-list{
 	list-style: none;
-	display: grid;
-	
+    padding: 15px 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.book-list li{
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--clr1);
+    padding-block: 0.2em;
+	border-radius: 10%;
 }
 
 
