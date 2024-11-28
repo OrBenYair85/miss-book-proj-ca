@@ -13,8 +13,15 @@ export const bookService = {
 }
 
 
-function query(){
+function query(filterBy= {}){
     return storageService.query(BOOKS_KEY)
+        .then(books => {
+            if(filterBy.txt){
+                const regEx = new RegExp(filterBy.txt, 'i')
+                books = books.filter(book => RegEx.test(book.title))
+            }
+            return books
+        })
         
 }
 
@@ -43,10 +50,10 @@ function _createBooks(){
     if(!books || !books.length){
         books = []
         const demoData = [
-            { title: "To Kill a Mockingbird", listPrice: 120 },
-            { title: "1984", listPrice: 95 },
-            { title: "Pride and Prejudice", listPrice: 175 },
-            { title: "The Great Gatsby", listPrice: 145 },
+            { id:1,title: "To Kill a Mockingbird", listPrice: 120 },
+            { id:2,title: "1984", listPrice: 95 },
+            { id:3,title: "Pride and Prejudice", listPrice: 175 },
+            { id:4,title: "The Great Gatsby", listPrice: 145 },
           ]
         books.push(...demoData)
     }
