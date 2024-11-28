@@ -1,8 +1,10 @@
 import { utilService } from "./util.service.js";
 import { storageService } from "./async-storage.service.js";
-
+import { books } from "../assets/books.js";
+const demoData = [...books]
 const BOOKS_KEY = 'bookDB'
 _createBooks()
+console.log(demoData)
 
 export const bookService = {
     query,
@@ -49,12 +51,6 @@ function _createBooks(){
     let books = utilService.loadFromStorage(BOOKS_KEY)
     if(!books || !books.length){
         books = []
-        const demoData = [
-            { id:1,title: "To Kill a Mockingbird", listPrice: 120 },
-            { id:2,title: "1984", listPrice: 95 },
-            { id:3,title: "Pride and Prejudice", listPrice: 175 },
-            { id:4,title: "The Great Gatsby", listPrice: 145 },
-          ]
         books.push(...demoData)
     }
     utilService.saveToStorage(BOOKS_KEY,books)

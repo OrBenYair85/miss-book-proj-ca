@@ -11,7 +11,6 @@ export function BooksIndex(){
 
     useEffect(() => {
         loadBooks()
-        console.log(books)
     }, [])
 
     function loadBooks(){
