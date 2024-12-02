@@ -6,6 +6,7 @@ import { BooksIndex } from "./Pages/BooksIndex.jsx"
 import { Details } from "./cmps/AboutComp/Details.jsx"
 import { Vision } from "./cmps/AboutComp/Vision.jsx"
 import { NotFound } from "./Pages/NotFound.jsx"
+import { BookDetails } from "./Pages/BookDetails.jsx"
 
 const Router = ReactRouterDOM.HashRouter //Adding routes to the app 
 const {Routes, Route, Navigate} = ReactRouterDOM
@@ -24,6 +25,7 @@ export function RootCmp() {
                         <Route path="/about/vision" element={<Vision />} />
                     </Route>
                     <Route path='/books' element={<BooksIndex />} />
+                    <Route path='/books/:bookId' element={<BookDetails />} />
                     <Route path='*' element={<NotFound />} />
                </Routes>
             </main>
