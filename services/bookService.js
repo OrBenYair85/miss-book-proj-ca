@@ -1,6 +1,7 @@
 import { utilService } from "./util.service.js";
 import { storageService } from "./async-storage.service.js";
 import { books } from "../assets/books.js";
+
 const demoData = [...books]
 const BOOKS_KEY = 'bookDB'
 _createBooks()
@@ -29,6 +30,7 @@ function query(filterBy= {}){
 
 function get(bookId){
     return storageService.get(BOOKS_KEY,bookId)
+        .then(_setNextPrevBookId)
 }
 
 function remove(bookId){
@@ -61,4 +63,18 @@ function _createBook(title, listPrice){
     book.id = utilService.makeId()
     return book
 }
+
+function _setNextPrevBookId(book){
+    return query().then((books) => {
+        const bookIdx = books.findIndex((currBook) => currBook.id === book.id)
+        const nextBook = books[bookIdx + 1] ? books[bookIdx + 1] : books[0]
+        const prevbook = books[bookIdx -1] ? books[bookIdx -1] : books[books.length - 1]
+        book.nextBookId = nextBook.id
+        book.prevBookId = prevbook.id
+        return book
+    })
+
+    
+}
+
 
