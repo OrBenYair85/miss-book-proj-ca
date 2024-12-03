@@ -37,6 +37,7 @@ export function BookDetails(){
         <section className="book-details">
             <h1>{book.title}</h1>
             <h2>{book.authors}</h2>
+            {book.pageCount > 500 ? (<h3>Serious Reading</h3>) : book.pageCount > 200 ? (<h3>Descent Reading</h3>) : book.pageCount < 100 ? (<h3>Light Reading</h3>) : null}
             <img src={book.thumbnail} />
             <h4>{book.subtitle}</h4>
             <h4>Genere: {book.categories}</h4>

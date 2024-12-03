@@ -4,7 +4,7 @@ export function AppHeader() {
     return (
         <header className="app-header full main-layout">
             <section className="header-container">
-                <h1>Miss Books</h1>
+                <h1><Link to="/home">Miss Books</Link></h1>
                 <div className="navBar-contianer">
                 <nav className="navBar-list">
                     <NavLink to="/home">Home</NavLink>

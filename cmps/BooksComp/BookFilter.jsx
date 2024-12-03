@@ -17,7 +17,7 @@ export function BookFilter({defaultFilter,onSetFilter}){
         switch(target.type){
             case 'range':
             case 'number':
-                value = +target.value
+                value = target.value
                 break
             case 'checkbox':
                 value = target.checked
