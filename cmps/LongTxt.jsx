@@ -13,7 +13,7 @@ return(
     <div>
         <p>{isExpand ? txt : txt.slice(0, maxLength)}</p>
         {txt.length > maxLength && (
-            <span onClick={readMoreHandler}>
+            <span className="read-more" onClick={readMoreHandler}>
                 {isExpand ? 'Read Less' : 'Read More'}
             </span>
         )}

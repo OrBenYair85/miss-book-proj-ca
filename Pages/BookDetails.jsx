@@ -1,4 +1,5 @@
 import { bookService } from "../services/bookService.js"
+import { LongTxt } from "../cmps/LongTxt.jsx"
 
 const {useState, useEffect} = React 
 const { useParams, useNavigate, Link } = ReactRouterDOM
@@ -54,7 +55,7 @@ export function BookDetails(){
                 book.listPrice.amount > 150 ? 'price-red' : book.listPrice.amount < 20 ? 'price-green' : 'price'
             }>Price: {`${book.listPrice.amount} ${book.listPrice.currencyCode}`}</h4>
             <h6>Publish Date:{book.publishedDate}</h6>
-            <p>{book.description}</p>
+            <LongTxt txt={book.description} />
             <button onClick={onback}>Back</button>
             <section>
                 <button><Link to={`/books/${book.prevBookId}`}>Prev Book</Link></button>
