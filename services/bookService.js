@@ -27,6 +27,9 @@ function query(filterBy= {}){
             if(filterBy.price){
                 books = books.filter(book => book.listPrice.amount >= filterBy.price)
             }
+            if(filterBy.sale){
+                books = books.filter(book => book.listPrice.isOnSale)
+            }
             return books
         })
         
@@ -54,7 +57,7 @@ function getEmptyBook(title = '', listPrice = ''){
 }
 
 function getDefaultFilter() {
-    return { txt: '', price: '' }
+    return { txt: '', price: '', sale: '' }
 }
 
 function _createBooks(){

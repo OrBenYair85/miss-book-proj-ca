@@ -27,13 +27,6 @@ export function BookFilter({defaultFilter,onSetFilter}){
         
     }
 
-    // function handleTxtChnage(ev){
-    //     setFilterType(filter => ({...filter, txt:ev.target.value}))
-    // }
-
-    // function handlePriceChnage(ev){
-    //     setFilterType(filter => ({...filter, price:ev.target.value}))
-    // }
 
     function onSubmitFilter(ev){
         ev.preventDefault()
@@ -43,7 +36,7 @@ export function BookFilter({defaultFilter,onSetFilter}){
     }
 
 
-    const {txt,price} = filterType
+    const {txt,price,sale} = filterType
 
     return (
         <section>
@@ -55,6 +48,8 @@ export function BookFilter({defaultFilter,onSetFilter}){
                 <label htmlFor="price">Price</label>
                 <input value={price} onChange={handleChnge} type="number" name="price" id="price" />
 
+                <label htmlFor="sale">On Sale</label>
+                <input value={sale} onChange={handleChnge} type="checkbox" id="sale" name="sale" />
                 <button>Search</button>
 
             </form>
