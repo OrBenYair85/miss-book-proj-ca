@@ -52,8 +52,8 @@ function save(book){
     }
 }
 
-function getEmptyBook(title = '', listPrice = ''){
-    return {title,listPrice}
+function getEmptyBook(title = '', amount){
+    return {title,listPrice:{amount}}
 }
 
 function getDefaultFilter() {
@@ -69,9 +69,19 @@ function _createBooks(){
     utilService.saveToStorage(BOOKS_KEY,books)
 }
 
-function _createBook(title, listPrice){
-    const book = getEmptyBook(title, listPrice)
+function _createBook(title, amount){
+    const book = getEmptyBook(title, amount)
     book.id = utilService.makeId()
+    book.subtitle = `${title} is a book`
+    book.authors = ['Or Ben Yair']
+    book.publishedDate = randomYear()
+    book.description = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+    book.pageCount = randomPages()
+    book.categories = ['Computers', 'Hack']
+    book.thumbnail = `http://coding-academy.org/books-photos/${randomPhoto()}.jpg`
+    book.language = 'en'
+    book.listPrice.currencyCode = 'ILS'
+    book.listPrice.isOnSale = true
     return book
 }
 

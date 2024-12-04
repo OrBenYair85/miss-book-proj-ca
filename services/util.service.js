@@ -6,7 +6,10 @@ export const utilService = {
     getRandomIntInclusive,
     getDayName,
     getMonthName,
-    animateCSS
+    animateCSS,
+    randomYear,
+    randomPages,
+    randomPhoto
 }
 
 function makeId(length = 6) {
@@ -71,4 +74,16 @@ function animateCSS(el, animation='bounce') {
 
         el.addEventListener('animationend', handleAnimationEnd, { once: true })
     })
+}
+
+function randomYear(){
+    return Math.floor(Math.random() * (2024 - 1950 + 1)) + 1950;
+}
+
+function randomPages(){
+    return Math.floor(Math.random() * (1000 - 100 + 1)) + 100
+}
+
+function randomPhoto(){
+    return randomNumber = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
 }
