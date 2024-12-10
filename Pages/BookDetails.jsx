@@ -31,7 +31,7 @@ export function BookDetails(){
             
     }
 
-    function onback(){
+    function onBack(){
         navigate('/books')
     }
 
@@ -56,7 +56,7 @@ export function BookDetails(){
             }>Price: {`${book.listPrice.amount} ${book.listPrice.currencyCode}`}</h4>
             <h6>Publish Date:{book.publishedDate}</h6>
             <LongTxt txt={book.description} />
-            <button onClick={onback}>Back</button>
+            <button onClick={onBack}>Back</button>
             <section>
                 <button><Link to={`/books/${book.prevBookId}`}>Prev Book</Link></button>
                 <button><Link to={`/books/${book.nextBookId}`}>Next Book</Link></button>

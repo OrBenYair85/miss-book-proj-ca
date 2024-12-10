@@ -11,7 +11,7 @@ setIsExpand(!isExpand)
 
 return(
     <div>
-        <p>{isExpand ? txt : txt.slice(0, maxLength)}</p>
+        <p>{isExpand ? txt : (txt.slice(0, maxLength) + '...')}</p>
         {txt.length > maxLength && (
             <span className="read-more" onClick={readMoreHandler}>
                 {isExpand ? 'Read Less' : 'Read More'}
