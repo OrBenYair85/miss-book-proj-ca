@@ -9,7 +9,8 @@ export const utilService = {
     animateCSS,
     randomYear,
     randomPages,
-    randomPhoto
+    randomPhoto,
+    debounce
 }
 
 function makeId(length = 6) {
@@ -86,4 +87,15 @@ function randomPages(){
 
 function randomPhoto(){
     return randomNumber = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
+}
+
+export function debounce(func, time = 500){
+    var timeoutId
+    return (...args) => {
+        clearTimeout(timeoutId)
+        timeoutId = setTimeout(() => {
+            func(...args)
+        }, time)
+        
+    }
 }

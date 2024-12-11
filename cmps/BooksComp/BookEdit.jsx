@@ -1,14 +1,27 @@
 
 import { bookService } from "../../services/bookService.js";
 
+
 const {useState, useEffect} = React
-const {useNavigate} = ReactRouterDOM
+const { useNavigate, useParams} = ReactRouterDOM
 
 export function BookEdit(){
     
     const [bookToEdit,setBookToEdit] =  useState(bookService.getEmptyBook())
     const navigate = useNavigate()
+    const { bookId } = useParams()
+    
+    useEffect(() => {
+        if(bookId) loadBook()
+    }, [])
 
+    function loadBook(){
+        bookService.get(bookId)
+            .then(setBookToEdit)
+            .catch(err => [
+                console.log('problem with loading book', err)
+            ])
+    }
     
 
     function handleChange({target}){
@@ -57,7 +70,7 @@ export function BookEdit(){
 
     return (
         <section className="book-edit">
-            <h1>{bookToEdit.id ? 'Edit': 'Add'}</h1>
+            <h1>{bookId ? 'Edit': 'Add'}</h1>
 
             
             <form onSubmit={onSaveBook}>
