@@ -5,7 +5,7 @@ import { books } from "../assets/books.js";
 const demoData = [...books]
 const BOOKS_KEY = 'bookDB'
 _createBooks()
-console.log(demoData)
+
 
 export const bookService = {
     query,
@@ -52,8 +52,9 @@ function save(book){
     }
 }
 
-function getEmptyBook(title = '', amount){
+function getEmptyBook(title = '', amount = 0){
     return {title,listPrice:{amount}}
+    console.log(title, listPrice.amount)
 }
 
 function getDefaultFilter() {

@@ -12,7 +12,7 @@ export function BookFilter({defaultFilter,onSetFilter}){
     },[filterType])
 
 
-    function handleChnge({target}){
+    function handleChange({target}){
         let {value, name: field} = target
         switch(target.type){
             case 'range':
@@ -43,13 +43,13 @@ export function BookFilter({defaultFilter,onSetFilter}){
             <h2>Filter Our Books</h2>
             <form onSubmit={onSubmitFilter}>
                 <label htmlFor="txt">Book Name:</label>
-                <input value={txt} onChange={handleChnge} type="text" name="txt" id="txt" />
+                <input value={txt} onChange={handleChange} type="text" name="txt" id="txt" />
 
                 <label htmlFor="price">Price</label>
-                <input value={price} onChange={handleChnge} type="number" name="price" id="price" />
+                <input value={price} onChange={handleChange} type="number" name="price" id="price" />
 
                 <label htmlFor="sale">On Sale</label>
-                <input value={sale} onChange={handleChnge} type="checkbox" id="sale" name="sale" />
+                <input value={sale} onChange={handleChange} type="checkbox" id="sale" name="sale" />
                 <button>Search</button>
 
             </form>

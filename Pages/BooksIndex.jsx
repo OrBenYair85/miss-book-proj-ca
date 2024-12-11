@@ -2,8 +2,10 @@
 import { BookList } from "../cmps/BooksComp/BookList.jsx"
 import { bookService } from "../services/bookService.js"
 import { BookFilter } from "../cmps/BooksComp/BookFilter.jsx"
+import { BookEdit } from "../cmps/BooksComp/BookEdit.jsx"
 
 const { useEffect, useState } = React
+const {Link} = ReactRouterDOM
 
 
 export function BooksIndex(){
@@ -48,6 +50,9 @@ export function BooksIndex(){
             <section className="book-index">
             <h1>Our Books</h1>
             <BookFilter defaultFilter={filterBy} onSetFilter={onSetFilter}/>
+            <section className="book-add">
+                <Link to='/'></Link>
+            </section>
             <BookList  books={books} onRemoveBook={onRemoveBook}/>
             </section>
 
