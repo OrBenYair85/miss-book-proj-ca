@@ -47,6 +47,34 @@ export function BookEdit(){
                 }
             }
 
+            if(field === 'isOnSale'){
+                return {
+                    ...prevBook,
+                    listPrice: {
+                        ...prevBook.listPrice,
+                        [field]: value,
+                    },
+                }
+            }
+
+            if(field === 'currencyCode'){
+                return {
+                    ...prevBook,
+                    listPrice: {
+                        ...prevBook.listPrice,
+                        [field]: value,
+                    },
+                }
+            }
+
+            if (field === "authors") {
+                return { ...prevBook, [field]: value.split(",").map((author) => author.trim()) };
+            }
+
+            if (field === "categories") {
+                return { ...prevBook, [field]: value.split(",").map((category) => category.trim()) };
+            }
+
             return {
                 ...prevBook,
                 [field]: value,
@@ -55,7 +83,7 @@ export function BookEdit(){
    
     }
 
-    const {title , listPrice: {amount}} = bookToEdit
+    const {title, description,pageCount,subtitle, publishedDate,authors,categories,language, listPrice: {amount,currencyCode,isOnSale}} = bookToEdit
     
 
     function onSaveBook (ev) {
@@ -75,23 +103,43 @@ export function BookEdit(){
             
             <form onSubmit={onSaveBook}>
 
-                {/* <label htmlFor="title">Book Title:</label>
-                <input type="text" name="title" id="title" />
-
-                <label htmlFor="subtitle">Book Subtitle:</label>
-                <input type="text" name="subtitle" id="subtitle" />
-
-                <label htmlFor="autors">Autors:</label>
-                <input type="text" name="autors" id="autors" placeholder="Separate the Autors with a ," />
-
-                <label htmlFor="year">Publish Year:</label>
-                <input type="year" name="year" id="year" /> */}
 
                 <label htmlFor="title">Book Title:</label>
-                <input onChange={handleChange} value={title} type="text" name="title" id="title" /> 
-                
+                <input onChange={handleChange} value={title} type="text" name="title" id="title" />  
+
+                <label htmlFor="subtitle">Book Sub Title:</label>
+                <input onChange={handleChange} value={subtitle} type="text" name="subtitle" id="subtitle" />
+
+                <label htmlFor="publishedDate">Publish Year:</label>
+                <input  onChange={handleChange} value={publishedDate} type="text" name="publishedDate" id="publishedDate" /> 
+
+                <label htmlFor="description">Description:</label>
+                <input onChange={handleChange} value={description} type="text" name="description" id="description" />
+
+                <label htmlFor="authors">Autors:</label>
+                <input onChange={handleChange} value={authors.join(",")} type="text" name="authors" id="authors" />
+
+                <label htmlFor="categories">Categories:</label>
+                <input onChange={handleChange} value={categories.join(",")} type="text" name="categories" id="categories" />
+
+                <label htmlFor="language">Language:</label>
+                <input onChange={handleChange} value={language} type="text" name="language" id="language" /> 
+
                 <label htmlFor="amount">Price:</label>
                 <input onChange={handleChange} value={amount} type="number" name="amount" id="amount" />
+
+                <label htmlFor="currencyCode">Currency Code:</label>
+                <input onChange={handleChange} value={currencyCode} type="text" name="currencyCode" id="currencyCode" />
+
+                <label htmlFor="pageCount">Amount of Pages:</label>
+                <input onChange={handleChange} value={pageCount} type="number" name="pageCount" id="pageCount" />
+
+                <label htmlFor="isOnSale">Is on Sale:</label>
+                <input onChange={handleChange} checked={isOnSale} type="checkbox" name="isOnSale" id="isOnSale" />
+
+
+
+
 
                 <button>Save</button>
 

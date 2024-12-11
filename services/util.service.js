@@ -86,7 +86,7 @@ function randomPages(){
 }
 
 function randomPhoto(){
-    return randomNumber = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
+    return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
 }
 
 export function debounce(func, time = 500){

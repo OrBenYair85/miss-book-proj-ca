@@ -52,9 +52,22 @@ function save(book){
     }
 }
 
-function getEmptyBook(title = '', amount = 0){
-    return {title,listPrice:{amount}}
-    console.log(title, listPrice.amount)
+function getEmptyBook(title = '', authors=[], categories=[], language = '', amount = 0, currencyCode = '', isOnSale  , pageCount,publishedDate , subtitle, thumbnail, description){
+    const newBook = {
+        title,
+        authors,
+        categories,
+        language,
+        listPrice:{amount,currencyCode,isOnSale},
+        pageCount,
+        publishedDate,
+        description,
+        subtitle,
+        thumbnail : `http://coding-academy.org/books-photos/${utilService.randomPhoto()}.jpg` ,
+        title
+    }
+    return newBook
+    
 }
 
 function getDefaultFilter() {
