@@ -19,7 +19,7 @@ export function BookFilter({defaultFilter,onSetFilter}){
         switch(target.type){
             case 'range':
             case 'number':
-                value = target.value
+                value = +target.value
                 break
             case 'checkbox':
                 value = target.checked
@@ -48,7 +48,7 @@ export function BookFilter({defaultFilter,onSetFilter}){
                 <input value={txt} onChange={handleChange} type="text" name="txt" id="txt" />
 
                 <label htmlFor="price">Price</label>
-                <input value={price} onChange={handleChange} type="number" name="price" id="price" />
+                <input value={price || ''} onChange={handleChange} type="number" name="price" id="price" />
 
                 <label htmlFor="sale">On Sale</label>
                 <input value={sale} onChange={handleChange} type="checkbox" id="sale" name="sale" />

@@ -13,7 +13,8 @@ export const bookService = {
     remove,
     save,
     getEmptyBook,
-    getDefaultFilter
+    getDefaultFilter,
+    getFilterFromSrcParams
 }
 
 
@@ -110,6 +111,14 @@ function _setNextPrevBookId(book){
     })
 
     
+}
+
+function getFilterFromSrcParams(srcParams){
+    const txt = srcParams.get('txt') || ''
+    const price = srcParams.get('price') || ''
+    const sale = srcParams.get('sale') || ''
+
+    return { txt, price, sale}
 }
 
 

@@ -10,7 +10,8 @@ export const utilService = {
     randomYear,
     randomPages,
     randomPhoto,
-    debounce
+    debounce,
+    getTruthyValues
 }
 
 function makeId(length = 6) {
@@ -87,6 +88,17 @@ function randomPages(){
 
 function randomPhoto(){
     return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
+}
+
+export function getTruthyValues(obj){
+    const newObj = {}
+    for(const key in obj){
+        const value = obj[key]
+        if(value || value === 0){
+            newObj[key] = value
+        }
+    }
+    return newObj
 }
 
 export function debounce(func, time = 500){
