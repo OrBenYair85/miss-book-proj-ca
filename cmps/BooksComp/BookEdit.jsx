@@ -137,26 +137,8 @@ export function BookEdit(){
                 <label htmlFor="isOnSale">Is on Sale:</label>
                 <input onChange={handleChange} checked={isOnSale} type="checkbox" name="isOnSale" id="isOnSale" />
 
-
-
-
-
                 <button>Save</button>
 
-
-                
-                
-                
-                {/* book publish date year / string 
-                book description string 
-                book pagecount number
-                book catgory array
-                book tunmbnail url / string
-                book language string
-                book list price object
-                    list price currency code string 
-                    list price amount number
-                    list price is on sale? Boolean */}
             </form>
         </section>
     )
