@@ -14,7 +14,10 @@ export const bookService = {
     save,
     getEmptyBook,
     getDefaultFilter,
-    getFilterFromSrcParams
+    getFilterFromSrcParams,
+    saveReview,
+    getEmptyReview,
+    removeReview
 }
 
 
@@ -119,6 +122,48 @@ function getFilterFromSrcParams(srcParams){
     const sale = srcParams.get('sale') || ''
 
     return { txt, price, sale}
+}
+
+
+
+//Reviews Section 
+
+function saveReview(bookId, reviewToSave) {
+    return storageService.get(BOOKS_KEY, bookId)
+        .then(book => {
+            const review = _createReview(reviewToSave)
+            book.reviews.unshift(review)
+            return storageService.put(BOOKS_KEY, book)
+                .then(() => review)
+        })
+}
+
+
+
+function removeReview(bookId, reviewId) {
+    return storageService.get(BOOKS_KEY, bookId)
+        .then(book => {
+            const newReviews = book.reviews.filter((review) => review.id !== reviewId)
+            book.reviews = newReviews
+            return storageService.put(BOOKS_KEY, book)
+        })
+}
+
+function getEmptyReview() {
+    return {
+        fullName: 'new name',
+        rating: 0,
+        date: new Date().toISOString.slice(0, 10),
+        txt: '',
+        selected: 0,
+    }
+}
+
+function _createReview(reviewToSave) {
+    return {
+        id: utilService.makeId(),
+        ...reviewToSave,
+    }
 }
 
 

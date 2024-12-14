@@ -1,5 +1,6 @@
 import { bookService } from "../services/bookService.js"
 import { LongTxt } from "../cmps/LongTxt.jsx"
+import { AddReview } from "../cmps/BooksComp/AddReview.jsx"
 
 const {useState, useEffect} = React 
 const { useParams, useNavigate, Link } = ReactRouterDOM
@@ -60,7 +61,10 @@ export function BookDetails(){
             <section>
                 <button><Link to={`/books/${book.prevBookId}`}>Prev Book</Link></button>
                 <button><Link to={`/books/${book.nextBookId}`}>Next Book</Link></button>
+                
             </section>
+            
+
         </section>
     )
 }
