@@ -3,7 +3,8 @@ import { LongTxt } from "../cmps/LongTxt.jsx"
 import { AddReview } from "../cmps/BooksComp/AddReview.jsx"
 
 const {useState, useEffect} = React 
-const { useParams, useNavigate, Link } = ReactRouterDOM
+const {useParams, useNavigate} = ReactRouter
+const { Link } = ReactRouterDOM
 
 export function BookDetails(){
 
